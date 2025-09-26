@@ -9,12 +9,12 @@ Welcome to Day 3 of the **RISC-V SoC Tapeout Program**! This session dives into 
 3. [Logic Cloning](#logic-cloning)
 4. [Register Retiming](#register-retiming)
 5. [Practical Labs](#practical-labs)
-   - [Lab 1: Simple Multiplexer Optimization](#lab-1-simple-multiplexer-optimization)
-   - [Lab 2: Constant-Driven Multiplexer](#lab-2-constant-driven-multiplexer)
-   - [Lab 3: Multiplexer with Fixed Output](#lab-3-multiplexer-with-fixed-output)
-   - [Lab 4: Nested Ternary Logic](#lab-4-nested-ternary-logic)
-   - [Lab 5: D Flip-Flop with Constant Reset](#lab-5-d-flip-flop-with-constant-reset)
-   - [Lab 6: Fixed-Output D Flip-Flop](#lab-6-fixed-output-d-flip-flop)
+   - [Lab 1:](#lab-1)
+   - [Lab 2:](#lab-2)
+   - [Lab 3:](#lab-3)
+   - [Lab 4:](#lab-4)
+   - [Lab 5:](#lab-5)
+   - [Lab 6:](#lab-6)
 6. [Key Takeaways](#key-takeaways)
 7. [Additional Resources](#additional-resources)
 
@@ -61,7 +61,7 @@ Logic cloning involves duplicating a logic cell or module to balance loads, redu
 
 **Example**: Cloning a RISC-V ALU module to reduce fan-out and improve clock frequency.
 
-![Cloning Example](images/opt.png)
+![Cloning Example](cloning.png)
 
 ## Register Retiming
 
@@ -75,19 +75,19 @@ Retiming repositions registers (flip-flops) in a circuit to optimize timing and 
 
 **Example**: Retiming a RISC-V pipeline stage to reduce critical path delay.
 
-![Retiming Example](images/opt3.png)
+![Retiming Example](cloning.png)
 
 ## Practical Labs
 
 The following labs demonstrate optimization techniques using Verilog, synthesized with the Sky130 process, and verified through simulation and synthesis outputs. These labs align with RISC-V SoC design principles, focusing on practical applications.
 
-### Lab 1: Simple Multiplexer Optimization
+### Lab 1:
 
 **Verilog Code**:
 
 ```verilog
-module mux_opt (input a, input b, output y);
-  assign y = a ? b : 0;
+module opt_check (input a , input b , output y);
+	assign y = a?b:0;
 endmodule
 ```
 
@@ -103,15 +103,15 @@ endmodule
   between `abc -liberty` and `synth -top`.
 
 **Output**:
-- ![Lab 1 Output](images/opt.png)
+- ![Lab 1 Output](lab1.png)
 
-### Lab 2: Constant-Driven Multiplexer
+### Lab 2:
 
 **Verilog Code**:
 
 ```verilog
-module mux_const (input a, input b, output y);
-  assign y = a ? 1 : b;
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
 endmodule
 ```
 
@@ -120,15 +120,15 @@ endmodule
 - If `a = 1`, output `y = 1`; if `a = 0`, output `y = b`.
 
 **Output**:
-- ![Lab 2 Output](images/op2.png)
+- ![Lab 2 Output](lab2.png)
 
-### Lab 3: Multiplexer with Fixed Output
+### Lab 3:
 
 **Verilog Code**:
 
 ```verilog
-module mux_fixed (input a, input b, output y);
-  assign y = a ? 1 : b;
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
 endmodule
 ```
 
@@ -136,16 +136,16 @@ endmodule
 - 2-to-1 multiplexer: outputs `1` when `a = 1`, otherwise outputs `b`.
 
 **Output**:
-- ![Lab 3 Output](images/opt3.png)
+- ![Lab 3 Output](lab3.png)
 
-### Lab 4: Nested Ternary Logic
+### Lab 4:
 
 **Verilog Code**:
 
 ```verilog
-module mux_nested (input a, input b, input c, output y);
-  assign y = a ? (b ? (a & c) : c) : (!c);
-endmodule
+module opt_check4 (input a , input b , input c , output y);
+ assign y = a?(b?(a & c ):c):(!c);
+ endmodule
 ```
 
 **Functionality**:
@@ -153,20 +153,21 @@ endmodule
 - Simplifies to: `y = a ? c : !c`.
 
 **Output**:
-- ![Lab 4 Output](images/opt4.png)
+- ![Lab 4 Output](lab4.png)
 
-### Lab 5: D Flip-Flop with Constant Reset
+### Lab 5:
 
 **Verilog Code**:
 
 ```verilog
-module dff_reset (input clk, input reset, output reg q);
-  always @(posedge clk, posedge reset) begin
-    if (reset)
-      q <= 1'b0;
-    else
-      q <= 1'b1;
-  end
+module dff_const1(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
 endmodule
 ```
 
@@ -175,20 +176,21 @@ endmodule
 - Resets to `0` on `reset = 1`; otherwise, loads constant `1`.
 
 **Output**:
-- ![Lab 5 Output](images/dff_const1.png)
+- ![Lab 5 Output](lab5.png)
 
-### Lab 6: Fixed-Output D Flip-Flop
+### Lab 6:
 
 **Verilog Code**:
 
 ```verilog
-module dff_fixed (input clk, input reset, output reg q);
-  always @(posedge clk, posedge reset) begin
-    if (reset)
-      q <= 1'b1;
-    else
-      q <= 1'b1;
-  end
+module dff_const2(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
 endmodule
 ```
 
@@ -196,7 +198,7 @@ endmodule
 - D flip-flop with constant output `q = 1`, regardless of reset or clock.
 
 **Output**:
-- ![Lab 6 Output](images/dff_const2.png)
+- ![Lab 6 Output](lab6.png)
 
 ## Key Takeaways
 
