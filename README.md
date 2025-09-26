@@ -18,7 +18,7 @@ Welcome to **Week 1** of the **RISC-V SoC Tapeout Program**!  This repository ho
 
 ---
 
-## 📚 Table of Contents
+##  Table of Contents
 1. [About This Program](#about-this-program)
 2. [Prerequisites](#prerequisites)
 3. [Program Structure](#program-structure)
