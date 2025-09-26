@@ -32,7 +32,7 @@ The **design** is the Verilog code that describes the logic and functionality of
 
 A **testbench** is a Verilog module that creates a simulation environment for the design. It generates test inputs, applies them to the design, and verifies the outputs against expected results.
 
-![Design and Testbench Overview](images/lab1.png)
+
 
 ## Getting Started with Icarus Verilog
 
@@ -79,20 +79,21 @@ This lab guides you through simulating a 2-to-1 multiplexer, a fundamental compo
    ```
 
 **Output**:
-- ![Multiplexer Waveform](images/good_mux_waveform.png)
+- ![Multiplexer Waveform](good_mux.png)
 
 ## Verilog Code Analysis
 
 Below is the Verilog code for the 2-to-1 multiplexer (`good_mux.v`):
 
 ```verilog
-module mux_2to1 (input i0, input i1, input sel, output reg y);
-  always @(*) begin
-    if (sel)
-      y <= i1;
-    else
-      y <= i0;
-  end
+module good_mux (input i0, input i1, input sel, output reg y);
+always @ (*)
+begin
+    if(sel)
+        y <= i1;
+    else 
+        y <= i0;
+end
 endmodule
 ```
 
@@ -171,7 +172,7 @@ This lab synthesizes the 2-to-1 multiplexer using Yosys and the Sky130 PDK, prod
    ```
 
 **Output**:
-- ![Gate-Level Netlist](images/Netlist.png)
+- ![Gate-Level Netlist](synth_good_mux.png)
 
 ## Key Takeaways
 
