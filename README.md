@@ -1,10 +1,10 @@
 # Week1_Risc-v_soc_Tapeout_program
 
-Welcome to **Week 1** of the **RISC-V SoC Tapeout Program**! 🌟 This repository hosts the initial phase of a groundbreaking initiative by the Indian Institute of Technology Gandhinagar (IITGN) and VLSI System Design (VSD), aimed at transforming India's semiconductor landscape. This program is a 20-week journey from RTL design to silicon tapeout, empowering participants to contribute to India's technological sovereignty.
+Welcome to **Week 1** of the **RISC-V SoC Tapeout Program**!  This repository hosts the initial phase of a groundbreaking initiative by the Indian Institute of Technology Gandhinagar (IITGN) and VLSI System Design (VSD), aimed at transforming India's semiconductor landscape. This program is a 20-week journey from RTL design to silicon tapeout, empowering participants to contribute to India's technological sovereignty.
 
 ---
 
-## 📜 Overview
+## Overview
 **From Silicon to Sovereignty**: This program aligns with India’s vision of "One Tapeout Per Student" and semiconductor self-reliance. It bridges the gap between academia and industry through hands-on learning, utilizing industry-grade tools and methodologies to create job-ready VLSI professionals.
 
 ### Why This Matters?
@@ -36,10 +36,6 @@ This initiative is more than a training course—it’s a national mission. Part
 - Explore key concepts: testbenches, timing libraries, optimization techniques, and more.
 - Gain hands-on experience with weekly labs leading to a silicon tapeout.
 
-**A Rare Opportunity**: For the first time, VSD’s premium physical design workshops are available **FREE** to committed participants who submit timely assignments and projects. This is your chance to contribute to nation-building through chip design.
-
-**Apply Now**: [https://lnkd.in/gT-p_fRF](https://lnkd.in/gT-p_fRF)
-
 ---
 
 ## 2. Prerequisites
@@ -69,7 +65,7 @@ Each day’s folder contains:
 - Best practices for RTL design and synthesis.
 
 Explore the folders:
-- [Day 1](Week1/Day1/Readme.md)
+- [Day 1](Week1/Day1)
 - [Day 2](Week1/Day2)
 - [Day 3](Week1/Day3)
 - [Day 4](Week1/Day4)
@@ -77,20 +73,11 @@ Explore the folders:
 
 ---
 
-## 4. License
-This project is licensed under the **Attribution 4.0 International (CC-BY-4.0)** license. See the [LICENSE](LICENSE) file for details.
 
----
-
-## 5. Acknowledgements 👑
+## 4. Acknowledgements 
 We extend our gratitude to the visionary leaders and organizations driving this initiative:
 
 - **IIT Gandhinagar**: 
-  - Prof. Tarun Agarwal
-  - Prof. Nihar Ranjan Mohapatra
-  - Prof. Joycee Mekie
-  - Prof. Madhav Pathak
-  - Prof. Rajat Moona
 - **VSD**: 
   - Samir Patel
   - Kunal Ghosh
