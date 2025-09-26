@@ -132,7 +132,7 @@ Gate libraries (e.g., `sky130_fd_sc_hd__tt_025C_1v80.lib`) contain multiple vers
 
 The Sky130 PDK’s `.lib` file provides these cell variations, enabling efficient synthesis for RISC-V SoCs.
 
-![Gate Library Example](images/lab2.png)
+
 
 ## Lab 2: Synthesis with Yosys
 
