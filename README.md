@@ -22,10 +22,9 @@ Welcome to **Week 1** of the **RISC-V SoC Tapeout Program**!  This repository ho
 1. [About This Program](#about-this-program)
 2. [Prerequisites](#prerequisites)
 3. [Program Structure](#program-structure)
-4. [License](#license)
-5. [Acknowledgements](#acknowledgements)
-6. [How to Get Started](#how-to-get-started)
-7. [Resources](#resources)
+4. [Acknowledgements](#acknowledgements)
+5. [How to Get Started](#how-to-get-started)
+6. [Resources](#resources)
 
 ---
 
