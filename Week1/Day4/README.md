@@ -163,7 +163,7 @@ end
 Lab 7: Synthesis of the Blocking Caveat Module
 Synthesize the corrected version of the module and observe the results.
 
-![lab7](Screenshot from 2025-09-25 16-23-34.png)
+![lab7](lab7.png)
 
 >Key Takeaways
 
