@@ -56,7 +56,7 @@ To view the `sky130_fd_sc_hd__tt_025C_1v80.lib` file:
 
 The `.lib` file contains cell descriptions, including timing arcs, power consumption, and area, which are essential for synthesis and static timing analysis in RISC-V SoC designs.
 
-![Library File Exploration](images/lab1.png)
+![Library File Exploration](sky130_fd_sc_hd__tt_025C_1v80.lib.png)
 
 ## Hierarchical vs. Flattened Synthesis
 
@@ -81,7 +81,7 @@ Synthesis transforms RTL code into a gate-level netlist. The choice between hier
 
 **Example**: Synthesizing a RISC-V core with separate modules for ALU and control units.
 
-![Hierarchical Synthesis Output](images/hierarchical.png)
+
 
 ### Flattened Synthesis
 
@@ -102,7 +102,7 @@ Synthesis transforms RTL code into a gate-level netlist. The choice between hier
 
 **Example**: Flattening a RISC-V pipeline for aggressive optimization.
 
-![Flattened Synthesis Output](falt syn.png)
+![Flattened Synthesis Output](flat syn.png)
 
 ### Comparison Table
 
@@ -124,15 +124,15 @@ Flip-flops are the backbone of sequential logic in RISC-V designs, storing state
 **Verilog Code**:
 
 ```verilog
-module dff_async_reset (input clk, input async_reset, input d, output reg q);
-  always @(posedge clk, posedge async_reset)
+module dff_asyncres (input clk, input async_reset, input d, output reg q);
+  always @ (posedge clk, posedge async_reset)
     if (async_reset)
       q <= 1'b0;
     else
       q <= d;
 endmodule
 ```
-
+![d flip flop with asynchronous reset](dff_asyncres.png)
 **Functionality**:
 - Resets output `q` to `0` immediately on `async_reset = 1`.
 - Captures input `d` on the rising edge of `clk` when reset is low.
@@ -145,14 +145,14 @@ endmodule
 
 ```verilog
 module dff_async_set (input clk, input async_set, input d, output reg q);
-  always @(posedge clk, posedge async_set)
+  always @ (posedge clk, posedge async_set)
     if (async_set)
       q <= 1'b1;
     else
       q <= d;
 endmodule
 ```
-
+![d flip flop with asynchronous reset](dff_async_set.png)
 **Functionality**:
 - Sets output `q` to `1` immediately on `async_set = 1`.
 - Captures input `d` on the rising edge of `clk` when set is low.
@@ -164,8 +164,8 @@ endmodule
 **Verilog Code**:
 
 ```verilog
-module dff_sync_reset (input clk, input sync_reset, input d, output reg q);
-  always @(posedge clk)
+module dff_syncres (input clk, input async_reset, input sync_reset, input d, output reg q);
+  always @ (posedge clk)
     if (sync_reset)
       q <= 1'b0;
     else
@@ -179,7 +179,7 @@ endmodule
 
 **Use Case**: Ideal for synchronous RISC-V pipelines where reset aligns with clock edges.
 
-![Flip-Flop Waveform](images/dff_waveform.png)
+![Flip-Flop Waveform](dff_syncres.png)
 
 ## Simulation and Synthesis Workflow
 
